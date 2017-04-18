@@ -37,11 +37,11 @@ public class BaseDialog extends DialogFragment {
         Dialog dialog = new Dialog(getContext(),mAdapterView.getStyle());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(mAdapterView.getView());
-        dialog.setCanceledOnTouchOutside(mAdapterView.isCanceledOnTouchOutside());
+        dialog.setCanceledOnTouchOutside(mAdapterView.isTouchOut());
         dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                return mAdapterView.isCancelable();
+                return !mAdapterView.isCancelable();
             }
         });
         if(mAdapterView.isBottom()){

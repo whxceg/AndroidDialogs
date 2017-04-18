@@ -17,15 +17,15 @@ public abstract class BaseAdapter implements AdapterView {
 
     private int mStyle = 0;
     private boolean mBottom = false;
+    private boolean mCancelable = false;
+    private boolean mTouchOut = false;
 
     protected abstract int getLayout();
     protected abstract void onCreate(View view);
-    protected abstract void updateView(View view);
 
     public BaseAdapter(final FragmentActivity context){
         mBaseView = LayoutInflater.from(context).inflate(getLayout(),null);
         onCreate(mBaseView);
-        updateView(mBaseView);
     }
 
     @Override
@@ -45,12 +45,12 @@ public abstract class BaseAdapter implements AdapterView {
 
     @Override
     public boolean isCancelable() {
-        return true;
+        return mCancelable;
     }
 
     @Override
-    public boolean isCanceledOnTouchOutside() {
-        return true;
+    public boolean isTouchOut() {
+        return mTouchOut;
     }
 
     public void setStyle(int style){
@@ -59,5 +59,13 @@ public abstract class BaseAdapter implements AdapterView {
 
     public void setBottom(boolean bottom){
         this.mBottom = bottom;
+    }
+
+    public void setCancelable(boolean cancelable){
+        mCancelable = cancelable;
+    }
+
+    public void setTouchOut(boolean touchOut){
+        mTouchOut = touchOut;
     }
 }

@@ -12,6 +12,6 @@ public interface AdapterView {
     int getStyle();
     boolean isBottom();
     boolean isCancelable();
-    boolean isCanceledOnTouchOutside();
+    boolean isTouchOut();
 
 }

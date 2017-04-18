@@ -41,11 +41,6 @@ public class LoadingAdapter extends BaseAdapter {
     }
 
     @Override
-    protected void updateView(View view) {
-
-    }
-
-    @Override
     public int getStyle() {
         return R.style.DialogLoadingStyle;
     }
